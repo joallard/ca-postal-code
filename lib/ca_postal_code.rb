@@ -1,3 +1,5 @@
+require "ca_postal_code/version"
+
 module CAPostalCode
   REGIONS = {
     NL: ?A,

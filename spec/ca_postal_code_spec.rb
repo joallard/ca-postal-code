@@ -1,6 +1,4 @@
-require_relative "../ca_postal_code"
-
-describe CAPostalCode do
+RSpec.describe CAPostalCode do
   describe ".guess_region" do
     {
       "A1A 1A1": "NL",
