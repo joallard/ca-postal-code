@@ -17,6 +17,9 @@ module CAPostalCode
       YT: ?Y,
     }
 
+    # Guesses province or territory based on postal code first characters.
+    #
+    # Output is defined for valid, normalized postal codes only.
     def guess_region(string)
       entry = region_patterns.detect do |pattern, region|
         pattern.match?(string)
