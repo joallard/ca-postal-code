@@ -8,6 +8,9 @@ CAPostalCode.valid?("h1b2p3")
 CAPostalCode.normalize("e3b.4k5 ")
 # => "E3B 4K5"
 
+CAPostalCode.guess_region("K1A 0B3")
+# => "ON"
+
 CAPostalCode.guess_region("X0C 1A1")
 # => "NU"
 ```
