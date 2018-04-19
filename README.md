@@ -4,6 +4,31 @@ Guesses the Canadian province or territory (*region*) based on the postal code.
 For provinces and Yukon, it will guess based on the first letter. For Northwest Territories and Nunavut, it will check the first two or three characters.
 
 ## Usage
+### Validity
+```ruby
+CAPostalCode.valid?("h1b2p3")
+# => true
+
+CAPostalCode.valid?("F8G 1A1")
+# => false
+
+CAPostalCode.valid?("potato")
+# => false
+
+CAPostalCode.valid?("P0T 4T0")
+# => true
+```
+
+### Normalization
+```ruby
+CAPostalCode.normalize("e3b.4k5 ")
+# => "E3B 4K5"
+
+CAPostalCode.normalize("g1c 4z9")
+# => "G1C 4Z9"
+```
+
+### Region guessing
 ```ruby
 CAPostalCode.guess_region("G1A 1A1")
 # => "QC"
