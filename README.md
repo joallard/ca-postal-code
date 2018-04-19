@@ -1,10 +1,22 @@
 # CAPostalCode
-Guesses the Canadian province or territory (*region*) based on the postal code.
+A toolbox for Canadian postal codes: validating, normalizing and guessing their region.
 
-For provinces and Yukon, it will guess based on the first letter. For Northwest Territories and Nunavut, it will check the first two or three characters.
+```ruby
+CAPostalCode.valid?("h1b2p3")
+# => true
+
+CAPostalCode.normalize("e3b.4k5 ")
+# => "E3B 4K5"
+
+CAPostalCode.guess_region("X0C 1A1")
+# => "NU"
+```
 
 ## Usage
 ### Validity
+After normalizing the string, verifies if it fits the format for a postal code.
+
+Strings containing letters D, F, I, O, Q, and those starting with W or Z are invalid.
 ```ruby
 CAPostalCode.valid?("h1b2p3")
 # => true
@@ -20,15 +32,26 @@ CAPostalCode.valid?("P0T 4T0")
 ```
 
 ### Normalization
+Normalize the string to look like a postal code.
+
+It does not check for validity. Rather, the `.valid?` method relies on this one to make its work easier.
+
 ```ruby
 CAPostalCode.normalize("e3b.4k5 ")
 # => "E3B 4K5"
 
 CAPostalCode.normalize("g1c 4z9")
 # => "G1C 4Z9"
+
+CAPostalCode.normalize("potato")
+# => "POT ATO"
 ```
 
 ### Region guessing
+Guesses the Canadian province or territory (*region*) based on the postal code.
+
+For provinces and Yukon, it will guess based on the first letter. For Northwest Territories and Nunavut, it will check the first two or three characters.
+
 ```ruby
 CAPostalCode.guess_region("G1A 1A1")
 # => "QC"
