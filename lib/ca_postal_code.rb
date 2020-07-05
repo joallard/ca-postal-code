@@ -18,7 +18,10 @@ module CAPostalCode
 
   def self.valid?(string)
     return false unless string = normalize(string)
+    strict_valid?(string)
+  end
 
+  def self.strict_valid?(string)
     string.match? PATTERN
   end
 
