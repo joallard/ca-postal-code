@@ -29,9 +29,8 @@ module CAPostalCode
   #
   # Will return `nil` if the normalized string does not have 6 characters.
   def self.normalize(string)
-    string.strip!
+    string.gsub!(/[^a-zA-Z0-9]/, '')
     string.upcase!
-    string.gsub!(/\W/, '')
 
     return unless string.length == 6
 

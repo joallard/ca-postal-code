@@ -12,7 +12,7 @@ RSpec.describe CAPostalCode do
         expect(described_class.valid?(postalcode)).to be true
       end
     end
-    
+
     [
       "gibberish",
       "a1a 2b",
@@ -31,6 +31,7 @@ RSpec.describe CAPostalCode do
     [
       "a1a 2b1",
       "A1A-2B1",
+      "A1A_2B1",
       "a1a 2b1 ",
     ].each do |postalcode|
       it "#{postalcode.inspect} should be normalized to 'A1A 2B1'" do
