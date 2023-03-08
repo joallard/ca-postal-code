@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = CAPostalCode::VERSION
   spec.authors       = ["Jonathan Allard"]
   spec.email         = ["jonathan@allard.io"]
+  spec.license       = "MIT"
 
   spec.summary       = %q{Guesses the Canadian province or territory (region) based on the postal code.}
   # spec.description   = %q{Write a longer description or delete this line.}
